@@ -1,0 +1,37 @@
+-- VERSION_4
+-- START DISKCACHE
+/home/swilso/eclipse_workspace/.metadata/.plugins/org.eclipse.core.resources/.projects/my_way/com.python.pydev.analysis/v2_indexcache
+my_way.settings|1420937656000|/home/swilso/eclipse_workspace/my_way/my_way/settings.py
+my_way.urls|1420937656000|/home/swilso/eclipse_workspace/my_way/my_way/urls.py
+my_way.wsgi|1420937656000|/home/swilso/eclipse_workspace/my_way/my_way/wsgi.py
+manage|1420937656000|/home/swilso/eclipse_workspace/my_way/manage.py
+my_way.__init__|1420937656000|/home/swilso/eclipse_workspace/my_way/my_way/__init__.py
+-- END DISKCACHE
+-- START DICTIONARY
+3
+1=my_way.settings
+3=my_way.urls
+2=my_way.wsgi
+-- END DICTIONARY
+-- START TREE 1
+16
+all|1|ALLOWED_HOSTS!11@
+app|1|application!19@
+bas|1|BASE_DIR!11@
+dat|1|DATABASES!11@
+deb|1|DEBUG!11@
+ins|1|INSTALLED_APPS!11@
+lan|1|LANGUAGE_CODE!11@
+mid|1|MIDDLEWARE_CLASSES!11@
+roo|1|ROOT_URLCONF!11@
+sec|1|SECRET_KEY!11@
+sta|1|STATIC_URL!11@
+tem|1|TEMPLATE_DEBUG!11@
+tim|1|TIME_ZONE!11@
+url|1|urlpatterns!27@
+use|3|USE_TZ!11@USE_L10N!11@USE_I18N!11@
+wsg|1|WSGI_APPLICATION!11@
+-- END TREE
+-- START TREE 2
+0
+-- END TREE

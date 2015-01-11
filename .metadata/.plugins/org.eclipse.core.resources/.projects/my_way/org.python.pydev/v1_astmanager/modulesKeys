@@ -1,0 +1,6 @@
+MODULES_MANAGER_V2
+manage|/home/swilso/eclipse_workspace/my_way/manage.py
+my_way.__init__|/home/swilso/eclipse_workspace/my_way/my_way/__init__.py
+my_way.settings|/home/swilso/eclipse_workspace/my_way/my_way/settings.py
+my_way.urls|/home/swilso/eclipse_workspace/my_way/my_way/urls.py
+my_way.wsgi|/home/swilso/eclipse_workspace/my_way/my_way/wsgi.py
