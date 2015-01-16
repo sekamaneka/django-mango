@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 
 {%load staticfiles %}
-
-<html>
-	<body>
-		{{ italicmessage }}
+	{% block title %}About page Ntino{% endblock %}
+	{% block body_block %}
+	{{ italicmessage }}
 		<img src = "{% static "images/rango.jpg" %}" alt = "no loaderingo" />
-	</body>
+	{% endblock %}
+	
