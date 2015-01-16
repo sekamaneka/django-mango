@@ -11,6 +11,7 @@
 				{% for category in categories %}
 				<li><a href="{% url 'category' category.slug %}">{{ category.name }}</a></li>
 				{% endfor %}
+				<p> visits: {{ visits }}</p>
 			</ul>
 		{% else %}
 			<strong>There are no categories present. </strong>
