@@ -17,7 +17,7 @@ def add_category(request):
         form = CategoryForm()
     return render(request, 'rango/add_category.html', {'form' : form})
 
-def add_page(request):
+def add_page(request, category_name_slug):
     try:
         cat = Category.objects.get(slug=category_name_slug)
     except Category.DoesNotExist:
