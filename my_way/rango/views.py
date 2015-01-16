@@ -3,6 +3,7 @@ from django.shortcuts import render
 from tkinter.constants import PAGES
 from rango.forms import CategoryForm, PageForm
 from rango.models import Category, Page
+from datetime import datetime
 
 def add_category(request):
     if request.method == 'POST':
@@ -40,12 +41,32 @@ def add_page(request, category_name_slug):
     return render(request, 'rango/add_page.html', {'form' : form, 'category': cat, 'slug': category_name_slug})
     
 def index(request):
-    #return HttpResponse("Is this an Easter Egg?! <br/> <a href='/rango/about'>About</a>")
-    ##context_dict = {'boldmessage': 'themessagegoeshere'}
-    ##return render(request, 'rango/index.html', context_dict)
-    category_list = Category.objects.order_by('-likes')[:10]
-    context_dict = {'categories' : category_list}
+    category_list = Category.objects.all()
+    page_list = Page.objects.all()
+    context_dict = {'categories' : category_list, 'pages': page_list}
+    
+    visits = int(request.COOKIES.get('visits', '1'))
+    reset_last_visit_time = False
+    response = render(request,'rango/index.html',context_dict)
+    
+    if 'last_visit' in request.COOKIES:
+        last_visit = request.COOKIES['last_visit']
+        last_visit_time = datetime.strptime(last_visit[:19], '%Y-%m-%d %H:%M:%S')
+        
+        if (datetime.now() - last_visit_time).days > 0:
+            visits += 1
+            reset_last_visit_time = True
+    else:
+        reset_last_visit_time = True
+        context_dict['visits'] = visits
+        response = render(request, 'rango/index.html', context_dict)
+        
+    if reset_last_visit_time:
+        response.set_cookie('last_visit', datetime.now())
+        response.set_cookie('visits', visits)
+    return response
     return render(request, 'rango/index.html', context_dict)
+
 def about(request):
     #return HttpResponse("what is this shit?<br/> <a href='/rango'>Back</a>")
     context_dict = {'italicmessage': 'themessagegoeshere'}
