@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-from django.conf.global_settings import TEMPLATE_DIRS
+from django.conf.global_settings import TEMPLATE_DIRS, LOGIN_REDIRECT_URL
 import os
+from test_app.settings import ACCOUNT_ACTIVATION_DAYS, REGISTRATION_AUTO_LOGIN
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -40,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rango',
+    'registration',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -92,4 +94,13 @@ STATICFILES_DIRS = (
 )
 
 MEDIA_URL = '/media/'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+#django redux registration constants
+REGISTRATION_OPEN = True
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = '/rango/'
+LOGIN_URL = '/accounts/login/'
+
