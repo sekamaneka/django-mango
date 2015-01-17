@@ -5,6 +5,7 @@
 {% block title %}Rango{% endblock %}
 
 {% block body_block %}
+	<div class="page-header">
 		<h1>This is your friendly homepage.</h1>
 		{% if categories %}
 			<ul>
@@ -16,4 +17,5 @@
 		{% else %}
 			<strong>There are no categories present. </strong>
 		{% endif %}
+	</div>
 {% endblock %}

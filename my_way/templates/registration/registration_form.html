@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
-
+{% load bootstrap3 %}
 
 {% block body_block %}
 <h1>Register here</h1>
 	<form method='post' action='.'>
 		{% csrf_token %}
-		{{ form.as_p }}
-		
-		<input type='submit' value='Submit' />
+		{% bootstrap_form form %}
+		{% buttons %}
+			<button type='submit' class='btn btn-primary'>
+				{% bootstrap_icon 'lol' %} Submit
+			</button>
+		{% endbuttons %}
 	</form>
 {% endblock %}

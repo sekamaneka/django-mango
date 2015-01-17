@@ -2,10 +2,16 @@
 
 {%load staticfiles %}
 
+{% load bootstrap3 %}
+
+{% bootstrap_messages %}
+
 {% block title %}About page Ntino{% endblock %}
 
 {% block body_block %}
 	{{ italicmessage }}
-		<img src = "{% static "images/rango.jpg" %}" alt = "no loaderingo" />
+		<div>
+			<img width="800" height="450" src = "{% static "images/rango.jpg" %}" alt = "no loaderingo" />
+		</div>
 {% endblock %}
 	
