@@ -38,6 +38,7 @@ def add_page(request, category_name_slug):
     
     else:
         form = PageForm()
+    #this never happens
     return render(request, 'rango/add_page.html', {'form' : form, 'category': cat, 'slug': category_name_slug})
     
 def index(request):
