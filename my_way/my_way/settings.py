@@ -41,7 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rango',
-    'registration',
+    'crispy_forms',
     'bootstrap3',
 )
 
@@ -105,3 +105,5 @@ REGISTRATION_AUTO_LOGIN = True
 LOGIN_REDIRECT_URL = '/rango/'
 LOGIN_URL = '/accounts/login/'
 
+#bootstrap
+CRISPY_TEMPLATE_PACK = 'bootstrap3'

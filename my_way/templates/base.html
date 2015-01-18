@@ -26,7 +26,7 @@
     			<div class='navbar-collapse collapse'>
     				<ul class='nav navbar-nav navbar-right'>
     					<li><a href='{% url 'index' %}'>Home</a></li>
-    					{% if user.isauthenticated %}
+    					{% if user.is_authenticated %}
     						<li><a href='{% url 'add_category' %}'>Add a New Category</a></li>
         					<li><a href='{% url 'auth_logout' %}?next=/rango/'>Logout</a></li>
         				{% else %}
