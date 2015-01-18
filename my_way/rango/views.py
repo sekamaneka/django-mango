@@ -4,6 +4,7 @@ from tkinter.constants import PAGES
 from rango.forms import CategoryForm, PageForm
 from rango.models import Category, Page
 from datetime import datetime
+from django.views.generic import TemplateView
 
 def add_category(request):
     if request.method == 'POST':
