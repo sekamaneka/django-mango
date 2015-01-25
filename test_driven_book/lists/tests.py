@@ -29,16 +29,6 @@ class HomePageTest(TestCase):
         new_item = Item.objects.first()
         self.assertEqual(new_item.text, 'A new list item')
 
-    def test_home_page_displays_all_list_items(self):
-        Item.objects.create(text='text1')
-        Item.objects.create(text='text2')
-
-        request = HttpRequest()
-        response = home_page(request)
-        
-        self.assertIn('text1', response.content.decode())
-        self.assertIn('text2', response.content.decode())
-
     def test_home_page_redirects_after_a_POST_request(self):
         request = HttpRequest()
         request.method = 'POST'
@@ -47,7 +37,7 @@ class HomePageTest(TestCase):
         response = home_page(request)
 
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(response['location'], '/')
+        self.assertEqual(response['location'], '/lists/the-only-list-in-the-world')
     def test_home_page_only_saves_items_when_neccesary(self):
         request = HttpRequest()
         home_page(request)
@@ -71,3 +61,19 @@ class ItemModelTest(TestCase):
         second_saved_item = saved_items[1]
         self.assertEqual(first_saved_item.text, first_item.text)
         self.assertEqual(second_saved_item.text, second_item.text)
+
+class ListViewCase(TestCase):
+
+    def test_uses_list_template(self):
+        response = self.client.get('/lists/the-only-list-in-the-world')
+        self.assertTemplateUsed(response, 'list.html')
+
+    def test_displays_all_list_items(self):
+        Item.objects.create(text='text1')
+        Item.objects.create(text='text2')
+
+        response = self.client.get('/lists/the-only-list-in-the-world') 
+        
+        self.assertContains(response, 'text1')
+        self.assertContains(response, 'text2')
+
